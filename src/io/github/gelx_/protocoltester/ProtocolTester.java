@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class ProtocolTester {
 
-    public static void main() {
+    public static void main(String... args) {
 
         System.out.println("Startng ProtocolTester v0.1");
         Scanner input = new Scanner(System.in);
@@ -31,7 +31,7 @@ public class ProtocolTester {
         boolean stop = false;
 
         System.out.println("Please enter a packet name or \"stop\"");
-        while(!stop) loop:{
+        while(!stop){
             String command = input.next();
 
             switch (command.toLowerCase()){

@@ -80,6 +80,7 @@ public class Connection implements Runnable{
                     if(key.isWritable()){
                         if(!outputQueue.isEmpty()){
                             channel.write(outputQueue.poll());
+                            LOGGER.info("Sent packet!");
                         }
                     }else if(key.isReadable()){
                         //Read packID (short -> 2b)
@@ -94,6 +95,7 @@ public class Connection implements Runnable{
 
                         //Hand off to packetHandler
                         handler.handlePacket(Protocol.unpackPacket(channel.getRemoteAddress(), packetID, dataBuffer));
+                        LOGGER.info("Received packet!");
                     }
 
                     iterator.remove();
